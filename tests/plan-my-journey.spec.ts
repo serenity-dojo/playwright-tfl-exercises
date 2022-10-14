@@ -22,8 +22,8 @@ test('Should be able to plan a journey between two stations',
         await expect(journeyResults.from).toContainText('Paddington Station');
         await expect(journeyResults.to).toContainText('Oxford Circus');
                 
-        await expect(page.locator(".journey-option").locator(".time-box:visible").first())
-                         .toHaveText(/Depart at:.*Arrive at:.*/, { timeout: 10000 });
+        await expect(journeyResults.timeBoxes.first())
+                    .toHaveText(/Depart at:.*Arrive at:.*/, { timeout: 10000 });
     }
 );
 
